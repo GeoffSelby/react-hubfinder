@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, useContext } from 'react';
+import GithubContext from '../../context/github/githubContext';
 
-const ProfileHead = ({ user }) => {
+const ProfileHead = () => {
+  const githubContext = useContext(GithubContext);
+
   const {
     name,
     email,
@@ -16,7 +18,7 @@ const ProfileHead = ({ user }) => {
     public_repos,
     public_gists,
     hireable,
-  } = user;
+  } = githubContext.user;
 
   return (
     <Fragment>
@@ -164,10 +166,6 @@ const ProfileHead = ({ user }) => {
       </div>
     </Fragment>
   );
-};
-
-ProfileHead.propTypes = {
-  user: PropTypes.object.isRequired,
 };
 
 export default ProfileHead;

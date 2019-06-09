@@ -1,9 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import Spinner from '../layout/Spinner';
 import UserItem from './UserItem';
+import GithubContext from '../../context/github/githubContext';
 
-const UserList = ({ users, loading }) => {
+const UserList = () => {
+  const githubContext = useContext(GithubContext);
+
+  const { loading, users } = githubContext;
+
   if (loading) {
     return <Spinner />;
   }
@@ -23,11 +27,6 @@ const UserList = ({ users, loading }) => {
       <h2 className="text-5xl text-center">Search for someone</h2>
     </div>
   );
-};
-
-UserList.propTypes = {
-  users: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
 };
 
 export default UserList;

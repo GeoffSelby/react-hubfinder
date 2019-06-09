@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useContext } from 'react';
 import Spinner from '../layout/Spinner';
 import ProfileHead from './ProfileHead';
 import RepoList from '../repos/RepoList';
+import { isObjectEmpty } from '../../helpers';
+import GithubContext from '../../context/github/githubContext';
 
-const Profile = ({ loading, user, repos, match, getUser, getUserRepos }) => {
+const Profile = ({ match }) => {
+  const githubContext = useContext(GithubContext);
+
+  const { user, loading, getUser, getUserRepos } = githubContext;
+
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
@@ -13,27 +18,24 @@ const Profile = ({ loading, user, repos, match, getUser, getUserRepos }) => {
 
   if (loading) return <Spinner />;
 
-  return (
-    <div className="flex flex-col flex-1">
-      <ProfileHead user={user} />
-      <div className="bg-white w-full flex-1">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-lg text-gray-900 tracking-wide pt-4">
-            Recent Repositories
-          </h1>
-          <hr className="border-b border-gray-300 mb-6" />
-          <RepoList repos={repos} />
+  if (!isObjectEmpty(user)) {
+    return (
+      <div className="flex flex-col flex-1">
+        <ProfileHead />
+        <div className="bg-white w-full flex-1">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-lg text-gray-900 tracking-wide pt-4">
+              Recent Repositories
+            </h1>
+            <hr className="border-b border-gray-300 mb-6" />
+            <RepoList />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
 
-Profile.propTypes = {
-  loading: PropTypes.bool,
-  user: PropTypes.object.isRequired,
-  getUser: PropTypes.func.isRequired,
-  getUserRepos: PropTypes.func.isRequired,
+  return null;
 };
 
 export default Profile;
