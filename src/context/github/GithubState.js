@@ -10,6 +10,7 @@ import {
   GET_USER,
   GET_REPOS,
   CLEAR_REPOS,
+  SET_SEARCH,
 } from '../types';
 
 let githubClientId;
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const GithubState = props => {
   const initialState = {
+    searchTerm: '',
     users: [],
     user: {},
     repos: [],
@@ -32,6 +34,14 @@ const GithubState = props => {
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
+
+  // Set search term
+  const setSearch = text => {
+    dispatch({
+      type: SET_SEARCH,
+      payload: text,
+    });
+  };
 
   // Search GitHub Users
   const searchUsers = async text => {
@@ -124,10 +134,12 @@ const GithubState = props => {
         user: state.user,
         repos: state.repos,
         loading: state.loading,
+        searchTerm: state.searchTerm,
         searchUsers,
         clearUsers,
         getUser,
         getUserRepos,
+        setSearch,
       }}
     >
       {props.children}

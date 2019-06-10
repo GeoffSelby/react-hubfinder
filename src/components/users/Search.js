@@ -1,24 +1,22 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import GithubContext from '../../context/github/githubContext';
 
 const Search = () => {
   const githubContext = useContext(GithubContext);
 
-  const [text, setText] = useState('');
-
   const onChange = e => {
-    setText(e.target.value);
+    githubContext.setSearch(e.target.value);
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    if (text.length >= 1) {
-      githubContext.searchUsers(text);
+    if (githubContext.searchTerm.length >= 1) {
+      githubContext.searchUsers(githubContext.searchTerm);
     }
   };
 
   const clearForm = e => {
-    setText('');
+    githubContext.setSearch('');
     githubContext.clearUsers();
   };
 
@@ -28,12 +26,12 @@ const Search = () => {
         <input
           type="text"
           name="text"
-          value={text}
+          value={githubContext.searchTerm}
           className="form-input form-input-group-left w-full border-0 focus:shadow-none"
           placeholder="Search for GitHub users..."
           onChange={onChange}
         />
-        {text.length >= 1 && (
+        {githubContext.searchTerm.length >= 1 && (
           <div className="form-input-group-right">
             <button
               type="button"

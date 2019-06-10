@@ -5,3 +5,4 @@ export const GET_REPOS = 'GET_REPOS';
 export const CLEAR_REPOS = 'CLEAR_REPOS';
 export const SET_LOADING = 'SET_LOADING';
 export const CLEAR_LOADING = 'CLEAR_LOADING';
+export const SET_SEARCH = 'SET_SEARCH';

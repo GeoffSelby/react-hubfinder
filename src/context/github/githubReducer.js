@@ -6,10 +6,16 @@ import {
   GET_USER,
   GET_REPOS,
   CLEAR_REPOS,
+  SET_SEARCH,
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
+    case SET_SEARCH:
+      return {
+        ...state,
+        searchTerm: action.payload,
+      };
     case CLEAR_USERS:
       return {
         ...state,
