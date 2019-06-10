@@ -14,7 +14,7 @@ const UserList = () => {
 
   if (!loading && users.length >= 1) {
     return (
-      <div className="flex flex-wrap -mx-2">
+      <div className="flex flex-wrap justify-center md:justify-start -mx-2">
         {users.map(user => (
           <UserItem key={user.id} user={user} />
         ))}
@@ -24,7 +24,9 @@ const UserList = () => {
 
   return (
     <div className="flex items-center justify-center w-full py-12">
-      <h2 className="text-5xl text-center">Search for someone</h2>
+      <h2 className="text-3xl text-center text-gray-600">
+        Nothing to see here
+      </h2>
     </div>
   );
 };

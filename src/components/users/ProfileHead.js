@@ -22,17 +22,17 @@ const ProfileHead = () => {
 
   return (
     <Fragment>
-      <div className="container mx-auto px-2 py-10">
-        <div className="flex justify-center mx-auto">
+      <div className="container mx-auto px-4 py-10">
+        <div className="flex flex-col md:flex-row justify-center items-center mx-auto md:items-start">
           <div>
             <img
-              className="rounded-full w-32 text-center shadow mr-6"
+              className="rounded-full w-32 text-center shadow md:mr-6"
               src={avatar_url}
               alt={login}
             />
           </div>
-          <div className="w-1/2">
-            <h1 className="text-3xl text-gray-700 leading-tight">
+          <div className="w-full md:w-auto lg:w-1/2">
+            <h1 className="text-3xl text-gray-700 leading-tight text-center md:text-left">
               {name}{' '}
               {hireable && (
                 <span className="px-4 py-1 bg-green-500 text-white text-sm font-light rounded shadow">
@@ -40,7 +40,7 @@ const ProfileHead = () => {
                 </span>
               )}
             </h1>
-            <p className="mb-2">
+            <p className="mb-2 text-center md:text-left">
               <a
                 href={html_url}
                 className="text-sm text-gray-600 font-light leading-snug hover:underline"
@@ -49,11 +49,13 @@ const ProfileHead = () => {
               </a>
             </p>
             {bio && (
-              <p className="text-gray-700 text-sm font-light mb-3">{bio}</p>
+              <p className="text-gray-700 text-sm font-light mb-3 text-center md:text-left">
+                {bio}
+              </p>
             )}
-            <div className="flex mb-5">
+            <div className="flex flex-wrap justify-center md:justify-start md:flex-no-wrap mb-5">
               {location && (
-                <span className="text-gray-600 text-xs mr-8 font-light">
+                <span className="text-gray-600 text-xs mr-6 lg:mr-8 mb-2 font-light">
                   <svg
                     className="inline-block w-4 h-4 mr-1 text-gray-700 fill-current"
                     viewBox="0 0 20 20"
@@ -79,7 +81,7 @@ const ProfileHead = () => {
                 </span>
               )}
               {blog && (
-                <span className="text-gray-600 text-xs mr-8 font-light">
+                <span className="text-gray-600 text-xs mr-6 lg:mr-8 mb-2 font-light">
                   <svg
                     className="inline-block w-4 h-4 mr-1 text-gray-700 fill-current"
                     viewBox="0 0 20 20"
@@ -107,7 +109,7 @@ const ProfileHead = () => {
                 </span>
               )}
               {email && (
-                <span className="text-gray-600 text-xs mr-8 font-light">
+                <span className="text-gray-600 text-xs mr-6 lg:mr-8 mb-2 font-light">
                   <svg
                     className="inline-block w-4 h-4 mr-1 text-gray-700 fill-current"
                     viewBox="0 0 20 20"
@@ -136,25 +138,25 @@ const ProfileHead = () => {
               )}
             </div>
             <div className="flex">
-              <span className="text-gray-600 text-sm mr-8 font-semibold tracking-wide">
+              <span className="text-gray-600 text-sm mr-6 md:mr-8 font-semibold tracking-wide text-center">
                 Followers{' '}
                 <span className="rounded-full py-1 px-2 bg-gray-400 text-gray-600">
                   {followers}
                 </span>
               </span>
-              <span className="text-gray-600 text-sm mr-8 font-semibold tracking-wide">
+              <span className="text-gray-600 text-sm mr-6 md:mr-8 font-semibold tracking-wide text-center">
                 Following{' '}
                 <span className="rounded-full py-1 px-2 bg-gray-400 text-gray-600">
                   {following}
                 </span>
               </span>
-              <span className="text-gray-600 text-sm mr-8 font-semibold tracking-wide">
+              <span className="text-gray-600 text-sm mr-6 md:mr-8 font-semibold tracking-wide text-center">
                 Repositories{' '}
                 <span className="rounded-full py-1 px-2 bg-gray-400 text-gray-600">
                   {public_repos}
                 </span>
               </span>
-              <span className="text-gray-600 text-sm mr-8 font-semibold tracking-wide">
+              <span className="text-gray-600 text-sm mr-6 md:mr-8 font-semibold tracking-wide text-center">
                 Gists{' '}
                 <span className="rounded-full py-1 px-2 bg-gray-400 text-gray-600">
                   {public_gists}

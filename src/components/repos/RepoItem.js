@@ -25,13 +25,13 @@ const RepoItem = ({ repo }) => {
             </a>
           </p>
         )}
-        <p className="flex-1 text-sm text-gray-600 font-light">
+        <p className="flex-1 text-sm text-gray-600 font-light mb-3">
           {repo.description ? repo.description : 'No description'}
           {/* {repo.description} */}
         </p>
-        <ul className="flex">
+        <ul className="flex flex-wrap">
           {repo.language && (
-            <li className="mr-6 text-gray-600 text-xs">
+            <li className="mr-3 md:mr-6 mt-2 md:mt-0 text-gray-600 text-xs">
               <svg
                 className="inline-block w-4 h-4 fill-current text-gray-500 mr-1 -mt-1"
                 viewBox="0 0 20 20"
@@ -53,7 +53,7 @@ const RepoItem = ({ repo }) => {
             </li>
           )}
           {repo.stargazers_count >= 1 && (
-            <li className="mr-6 text-gray-600 text-xs">
+            <li className="mr-3 md:mr-6 mt-2 md:mt-0 text-gray-600 text-xs">
               <svg
                 className="inline-block w-4 h-4 fill-current text-gray-500 mr-1 -mt-1"
                 viewBox="0 0 20 20"
@@ -75,7 +75,7 @@ const RepoItem = ({ repo }) => {
             </li>
           )}
           {repo.forks_count >= 1 && (
-            <li className="mr-6 text-gray-600 text-xs">
+            <li className="mr-3 md:mr-6 mt-2 md:mt-0 text-gray-600 text-xs">
               <svg
                 className="inline-block w-3 stroke-current fill-current text-gray-500 mr-1 -mt-1"
                 viewBox="0 0 9 13"
@@ -128,7 +128,7 @@ const RepoItem = ({ repo }) => {
             </li>
           )}
           {repo.license && (
-            <li className="mr-6 text-gray-600 text-xs">
+            <li className="mr-3 md:mr-6 mt-2 md:mt-0 text-gray-600 text-xs">
               <svg
                 className="inline-block w-4 h-4 fill-current text-gray-500 mr-1 -mt-1"
                 viewBox="0 0 14 16"
@@ -145,7 +145,7 @@ const RepoItem = ({ repo }) => {
               {repo.license.spdx_id}
             </li>
           )}
-          <li className="mr-6 text-gray-600 text-xs">
+          <li className="mr-3 md:mr-6 mt-2 md:mt-0 text-gray-600 text-xs">
             Updated <Moment fromNow>{repo.updated_at}</Moment>
           </li>
         </ul>

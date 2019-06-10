@@ -23,7 +23,7 @@ const Profile = ({ match }) => {
       <div className="flex flex-col flex-1">
         <ProfileHead />
         <div className="bg-white w-full flex-1">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto px-4">
             <h1 className="text-lg text-gray-900 tracking-wide pt-4">
               Recent Repositories
             </h1>

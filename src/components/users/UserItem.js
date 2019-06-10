@@ -3,18 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const UserItem = ({
-  user: {
-    avatar_url,
-    login,
-    name,
-    html_url,
-    public_repos,
-    followers,
-    hireable,
-  },
+  user: { avatar_url, login, name, public_repos, followers, hireable },
 }) => {
   return (
-    <div className="w-1/4 px-2 mb-8">
+    <div className="md:w-1/2 lg:w-1/4 px-2 mb-8">
       <div className="relative flex flex-col items-center justify-center w-full rounded-lg bg-white overflow-hidden shadow-lg p-6 mb-8 min-h-full">
         <div className="flex flex-col flex-grow items-center">
           {hireable && (

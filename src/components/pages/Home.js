@@ -5,7 +5,7 @@ import UserList from '../users/UserList';
 const Home = () => {
   return (
     <Fragment>
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-4">
         <Search />
         <UserList />
       </div>
