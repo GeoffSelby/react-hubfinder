@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <div>
             <a
-              href="https://github.com/GeoffSelby/HubFinder"
+              href="https://github.com/GeoffSelby/react-hubfinder"
               className="flex items-center justify-center text-sm px-4 py-2 leading-none border rounded text-gray-500 border-gray-500 hover:border-transparent hover:text-gray-700 hover:bg-white"
             >
               <svg
